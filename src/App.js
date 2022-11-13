@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header'
+import styles from '../src/components/base.module.css'
+import { AppProvider } from './context/AppState'
+import PostList from './components/PostList'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <AppProvider>
+      <div className={styles.app_container}>
+        <Header />
+        <h3>
+          New Post <span>3</span>
+        </h3>
+        <PostList />
+      </div>
+    </AppProvider>
+  )
 }
 
-export default App;
+export default App
